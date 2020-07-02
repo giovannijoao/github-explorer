@@ -10,7 +10,10 @@ export const Title = styled.h1`
   margin-top: 80px;
 `;
 
-export const Form = styled.form`
+interface FormProps {
+  hasError: boolean;
+}
+export const Form = styled.form<FormProps>`
   margin-top: 40px;
   max-width: 700px;
 
@@ -27,6 +30,8 @@ export const Form = styled.form`
     border: 0;
     border-radius: 5px 0 0 5px;
     color: #3a3a3a;
+    border: 2px solid ${props => (props.hasError ? '#c53030' : '#FFF')};
+    border-right: 0;
 
     &::placeholder {
       color: #a8a8b3;
@@ -46,6 +51,12 @@ export const Form = styled.form`
       background: ${shade(0.2, '#04d361')};
     }
   }
+`;
+
+export const Error = styled.span`
+  display: block;
+  color: #c53030;
+  margin-top: 8px;
 `;
 
 export const Repositories = styled.div`
